@@ -2,6 +2,7 @@ import { useCarritoStore } from '../Store/useCarritoStore.js'
 
 function Encabezado() {
   const items = useCarritoStore((state) => state.items)
+  // Cuenta las unidades totales, incluidas las cantidades repetidas.
   const totalUnidades = items.reduce((suma, item) => suma + item.cantidad, 0)
 
   return (
