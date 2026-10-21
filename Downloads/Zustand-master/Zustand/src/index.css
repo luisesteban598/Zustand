@@ -1,0 +1,257 @@
+:root {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: #202b26;
+  background: #f5f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-acento: #245b45;
+  --color-acento-oscuro: #194432;
+  --color-fondo: #f5f4ef;
+  --color-texto: #202b26;
+  --color-texto-secundario: #737b73;
+  --color-borde: #e5e4dc;
+  --color-blanco: #fffefa;
+  --color-coral: #d96e50;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgb(217 110 80 / 8%), transparent 28rem),
+    var(--color-fondo);
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid rgb(217 110 80 / 55%);
+  outline-offset: 3px;
+}
+
+.app {
+  width: min(100% - 3rem, 1080px);
+  margin: 0 auto;
+  padding: 3.25rem 0 4rem;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid #d9d9cf;
+}
+
+.encabezado h1 {
+  margin: 0;
+  color: var(--color-texto);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.35rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.insignia {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid #c8d3c9;
+  border-radius: 50%;
+  background: #e8eee7;
+  color: var(--color-acento);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.contenido {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.panel {
+  min-width: 0;
+  padding: 1.65rem;
+  border: 1px solid #e3e2da;
+  border-radius: 8px;
+  background: var(--color-blanco);
+  box-shadow: 0 12px 32px rgb(39 48 40 / 5%);
+}
+
+.panel h2 {
+  margin: 0 0 1.15rem;
+  color: var(--color-texto);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--color-borde);
+}
+
+.fila > div {
+  min-width: 0;
+}
+
+.fila-nombre,
+.fila-detalle {
+  margin: 0;
+}
+
+.fila-nombre {
+  color: var(--color-texto);
+  font-size: 0.98rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.fila-detalle,
+.vacio {
+  margin-top: 0.3rem;
+  color: var(--color-texto-secundario);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.vacio {
+  margin-bottom: 0;
+  padding: 1rem 0 0.35rem;
+}
+
+.btn {
+  flex-shrink: 0;
+  min-height: 2.6rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primario {
+  background: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+  background: var(--color-acento-oscuro);
+}
+
+.btn-secundario {
+  border-color: #deded5;
+  background: transparent;
+  color: #555f57;
+}
+
+.btn-secundario:hover {
+  border-color: var(--color-coral);
+  background: #fff6f1;
+  color: #a94f37;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto);
+}
+
+.total strong {
+  color: var(--color-acento);
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-bloque {
+  width: 100%;
+}
+
+@media (min-width: 761px) {
+  .contenido > .panel:nth-child(2) {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .app {
+    width: min(100% - 2rem, 560px);
+    padding: 2rem 0 3rem;
+  }
+
+  .contenido {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .app {
+    width: min(100% - 1.25rem, 560px);
+    padding-top: 1.4rem;
+  }
+
+  .encabezado {
+    margin-bottom: 1.15rem;
+    padding-bottom: 1rem;
+  }
+
+  .encabezado h1 {
+    font-size: 2rem;
+  }
+
+  .panel {
+    padding: 1.15rem;
+  }
+
+  .fila {
+    gap: 0.6rem;
+  }
+
+  .btn {
+    padding-inline: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
